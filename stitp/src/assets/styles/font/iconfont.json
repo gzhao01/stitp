@@ -1,0 +1,16 @@
+{
+  "id": "1630939",
+  "name": "stitp",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "12965851",
+      "name": "caret-down",
+      "font_class": "caret-down",
+      "unicode": "e6b1",
+      "unicode_decimal": 59057
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
+<!--
+2013-9-30: Created.
+-->
+<svg>
+<metadata>
+Created by iconfont
+</metadata>
+<defs>
+
+<font id="iconfont" horiz-adv-x="1024" >
+  <font-face
+    font-family="iconfont"
+    font-weight="500"
+    font-stretch="normal"
+    units-per-em="1024"
+    ascent="896"
+    descent="-128"
+  />
+    <missing-glyph />
+    
+    <glyph glyph-name="caret-down" unicode="&#59057;" d="M254.6 512h514.6c35.6 0 53.4-43 28.2-68.2L540.2 186.4c-15.6-15.6-41-15.6-56.6 0L226.4 443.8C201.2 469 219 512 254.6 512z"  horiz-adv-x="1024" />
+
+    
+
+
+  </font>
+</defs></svg>
