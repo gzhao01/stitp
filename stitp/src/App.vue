@@ -15,4 +15,7 @@ export default {
 body
   background-color: $bgColor
   overflow: auto
+html, body
+  margin: 0
+  padding: 0
 </style>
