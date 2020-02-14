@@ -12,46 +12,50 @@
         :index="nav.path"
       >
         <template slot="title">
-          <span>{{nav.name}}</span>
+          <div>{{nav.name}}</div>
         </template>
       </el-menu-item>
     </el-menu>
+    <div class="bottom">
+      <div class="info">信息</div>
+      <el-divider></el-divider>
+      <div>上课教师</div>
+      <div>答疑时间</div>
+      <el-divider></el-divider>
+      <div>寄语</div>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomeAside',
+  name: 'MyCourseAside',
   data () {
     return {
       HomeList: [
         {
-          path: '/myHome/pInfo',
-          name: "个人信息"
+          path: '/courseDetail/materials',
+          name: "课程材料"
         },
         {
-          path: '/myHome/myCourse',
-          name: "我的课程"
+          path: '/courseDetail/points',
+          name: "分数"
         },
         {
-          path: '/myHome/myGroup',
-          name: "我的小组"
+          path: '/courseDetail/members',
+          name: "成员"
         },
         {
-          path: '/myHome/msg',
-          name: "消息"
+          path: '/courseDetail/schedule',
+          name: "课程计划"
         },
         {
-          path: '/myHome/notice',
-          name: "通知"
+          path: '/courseDetail/takeOff',
+          name: "作业"
         },
         {
-          path: '/myHome/table',
-          name: "课表"
-        },
-        {
-          path: '/myHome/setting',
-          name: "设置"
+          path: '/courseDetail/homeWork',
+          name: "请假"
         }
         ]
     }
@@ -74,4 +78,12 @@ export default {
 .course-image
   width: $asideWidth
   height: $asideWidth
+.bottom
+  text-align: left
+  .info
+    margin-top: $gap
+  .el-divider
+    background-color: #BBBBBB
+    margin-top: 0
+    margin-bottom: $gap
 </style>
