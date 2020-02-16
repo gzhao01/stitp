@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Login from '@/pages/Login.vue'
 
 Vue.use(Router)
 
@@ -51,7 +50,17 @@ export default new Router({
     {
       path: '/login',
       name: "Login",
-      component: Login
+      component: () => import('@/pages/login/Login.vue')
+    },
+    {
+      path: '/register',
+      name: "Register",
+      component: () => import('@/pages/register/Register.vue') 
+    },
+    {
+      path: '/',
+      name: "Intro",
+      component: () => import('@/pages/Intro/intro.vue')
     },
     {
       path: '/courseDetail',
@@ -60,35 +69,38 @@ export default new Router({
       children: [
         {
           path: '/courseDetail/materials',
-          name: "个人信息",
-          component: () => import('@/pages/myCourse/components/asideComponents/Materials.vue')
+          name: "课程材料",
+          component: () => import('@/pages/myCourse/components/asideComponents/materials/Materials.vue')
         },
         {
           path: '/courseDetail/points',
-          name: "我的课程",
-          component: () => import('@/pages/myCourse/components/asideComponents/Points.vue')
+          name: "分数",
+          component: () => import('@/pages/myCourse/components/asideComponents/points/Points.vue')
         },
         {
           path: '/courseDetail/members',
-          name: "我的小组",
+          name: "成员",
           component: () => import('@/pages/myCourse/components/asideComponents/Members.vue')
         },
         {
           path: '/courseDetail/schedule',
-          name: "消息",
-          component: () => import('@/pages/myCourse/components/asideComponents/Schedule.vue')
+          name: "课程计划",
+          component: () => import('@/pages/myCourse/components/asideComponents/schedule/Schedule.vue')
         },
         {
           path: '/courseDetail/takeOff',
-          name: "通知",
+          name: "作业",
           component: () => import('@/pages/myCourse/components/asideComponents/TakeOff.vue')
         },
         {
           path: '/courseDetail/homeWork',
-          name: "课表",
+          name: "请假",
           component: () => import('@/pages/myCourse/components/asideComponents/HomeWork.vue')
         }
       ]
     }
-  ]
+  ],
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  }
 })

@@ -11,12 +11,14 @@
         <router-view></router-view>
       </el-main>
     </el-container>
+    <scroll-to-top></scroll-to-top>
   </el-container>
 </template>
 
 <script>
 import MyCourseHeader from './components/MyCourseHeader.vue'
 import MyCourseAside from './components/MyCourseAside.vue'
+import ScrollToTop from './components/ScrollToTop.vue'
 export default {
   name: 'MyCourse',
   data () {
@@ -26,6 +28,7 @@ export default {
   components: {
     MyCourseHeader: MyCourseHeader,
     MyCourseAside: MyCourseAside,
+    ScrollToTop: ScrollToTop
   }
 }
 </script>

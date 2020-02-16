@@ -1,12 +1,12 @@
 <template>
   <div>
-    Materials
+    chart
   </div>
 </template>
 
 <script>
-export default {
-  name: "Materials"
+export default{
+  name: "PointsChart"
 }
 </script>
 

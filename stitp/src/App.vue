@@ -13,9 +13,10 @@ export default {
 <style lang="stylus">
 @import '~styles/variables.styl'
 body
-  background-color: $bgColor
+  background-color: white
   overflow: auto
-html, body
+html, body, #app
   margin: 0
   padding: 0
+  height: 100%
 </style>

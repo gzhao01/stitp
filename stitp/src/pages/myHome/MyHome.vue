@@ -11,12 +11,14 @@
         <router-view></router-view>
       </el-main>
     </el-container>
+    <scroll-to-top></scroll-to-top>
   </el-container>
 </template>
 
 <script>
 import MyHomeHeader from './components/HomeHeader'
 import MyHomeAside from './components/HomeAside'
+import ScrollToTop from './components/ScrollToTop'
 export default {
   name: 'MyHome',
   data () {
@@ -26,6 +28,7 @@ export default {
   components: {
     MyHomeHeader: MyHomeHeader,
     MyHomeAside: MyHomeAside,
+    ScrollToTop: ScrollToTop
   }
 }
 </script>
