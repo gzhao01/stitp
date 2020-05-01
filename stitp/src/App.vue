@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <router-view/>
+    <el-scrollbar style="height: 100%">
+      <router-view/>
+    </el-scrollbar>
   </div>
 </template>
 
@@ -19,4 +21,7 @@ html, body, #app
   margin: 0
   padding: 0
   height: 100%
+.el-scrollbar__wrap{
+  overflow-x: hidden;
+}
 </style>

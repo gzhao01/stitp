@@ -31,6 +31,9 @@ export default {
   components: {
     CourseList: CourseList,
     CourseFilter: CourseFilter
+  },
+  created() {
+    
   }
 }
 </script>

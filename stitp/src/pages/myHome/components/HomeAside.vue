@@ -61,6 +61,11 @@ export default {
     //   console.log(path, path_key)
     // }
   }
+  // mounted() {
+  //   this.$router.afterEach((to, from, next) => {
+  //     window.scrollTo(0, 0)
+  //   })
+  // }
 }
 </script>
 

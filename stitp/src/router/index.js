@@ -63,6 +63,11 @@ export default new Router({
       component: () => import('@/pages/Intro/intro.vue')
     },
     {
+      path: '/test',
+      nema: 'Test',
+      component: () => import('@/pages/test.vue')
+    },
+    {
       path: '/courseDetail',
       name: 'CourseDetail',
       component: () => import('@/pages/myCourse/MyCourse.vue'),

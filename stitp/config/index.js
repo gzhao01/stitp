@@ -16,7 +16,15 @@ module.exports = {
         pathRewrite: {
           '^/api': '/static/mock'
         }
-      }
+      },
+      '/testApi': {
+        target: 'http://localhost:3000',
+        changeOrigin: true,
+        pathRewrite: {
+          '^/testApi': '/testApi'
+        },
+      },
+      cssSourceMap: false
     },
 
     // Various Dev Server settings

@@ -42,7 +42,7 @@ export default {
       let that = this
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
       that.scrollTop = scrollTop
-      if (that.scrollTop > 60) {
+      if (that.scrollTop > 10) {
         that.btnFlag = true
       } else {
         that.btnFlag = false

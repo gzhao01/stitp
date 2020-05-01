@@ -1,25 +1,27 @@
 <template>
   <div class='callapce'>
-		<div class='collapse-item' v-for="(item, index) in lists" :key="index">
+		<div class='collapse-item' v-for="(item, index) in testLists" :key="index">
 			<div class='item-hd' :data-flag="index">
-				<div class='title'>周{{item}}</div>
+				<div class='title'>week{{index}}</div>
 				<div class='collapse-down'>
           <i class="el-icon-arrow-down downImg"></i>
         </div>
 			</div>
-			<div class='item-mn'>
-        {{item}}
+			<div class='item-mn' @click="handleClick">
+        {{123}}
 			</div>
       <el-divider></el-divider>
 		</div>
 	</div>
 </template>
 <script>
+import {mapState} from 'vuex'
 export default{
   name: 'Collapse',
   data () {
     return {
-      lists: [1,2,3,4,5]
+      // lists: [],
+      testLists: [{week: 1},{week: 2},{week: 3}]
     }
   },
   methods: {
@@ -68,10 +70,29 @@ export default{
               }
             })
           }
+    },
+    handleClick () {
+
     }
+  },
+  computed: {
+    ...mapState(['course_id'])
   },
   mounted () {
     this.collapse()
+  },
+  created () {
+     this.$http({
+       method: 'get',
+       url: '/testApi/user/getCourseMaterial',
+       params: {
+         course_id: this.course_id
+       }
+     }).then((res) => {
+       console.log(res.data.courseMaterial);
+       this.lists = res.data.courseMaterial;
+       this.lists = [{week: 1},{week: 2},{week: 3}];
+     })
   }
 }
 </script>

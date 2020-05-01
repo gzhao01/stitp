@@ -20,10 +20,10 @@
       <div class="traditionLog">
         <el-form :model="ruleForm" status-icon :rules="rules" ref="ruleForm" class="loginForm">
           <el-form-item prop="userName">
-            <el-input type="password" v-model="ruleForm.checkUserName" autocomplete="off" placeholder="你的用户名"></el-input>
+            <el-input v-model="ruleForm.userName" autocomplete="off" placeholder="你的用户名"></el-input>
           </el-form-item>
           <el-form-item prop="pass">
-            <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off" placeholder="密码"></el-input>
+            <el-input type="password" v-model="ruleForm.pass" autocomplete="off" placeholder="密码"></el-input>
           </el-form-item>
           <el-form-item>
             <div class="buttons">
@@ -63,6 +63,7 @@ export default {
         }
       };
       return {
+        id: 0,
         ruleForm: {
           userName: '',
           pass: '',
@@ -82,7 +83,23 @@ export default {
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            alert('submit!');
+            this.$http.post("/testApi/user/loginSubmit",{
+              // params:{
+                userName: this.ruleForm.userName,
+                pass: this.ruleForm.pass
+              // }
+            }).then((response) =>{
+              this.id = response.data.id; 
+              this.$router.push({
+                                //path: '/myHome/pInfo?id='+response.data.id,
+                                // path: '/myHome/pInfo', query: {id: this.id},
+                                name: 'pInfo', params: {id: this.id}
+                                // query: {id: res.id}
+                              });
+              console.log(response);
+            }
+            )
+
           } else {
             console.log('error submit!!');
             return false;
