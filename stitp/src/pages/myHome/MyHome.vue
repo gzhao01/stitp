@@ -11,7 +11,8 @@
         <router-view></router-view>
       </el-main>
     </el-container>
-    <scroll-to-top></scroll-to-top>
+    <!-- <scroll-to-top></scroll-to-top> -->
+    <!-- <el-backtop target=".el-scrollbar__wrap"></el-backtop> -->
   </el-container>
 </template>
 

@@ -6,24 +6,22 @@
         <el-avatar :src="circleUrl"></el-avatar>
         <el-row class="msgText">
           <div class="row1">
-            <span class="userName">名称</span>
-            <span class="time">时间</span>
+            <!-- title of the notice -->
+            <span class="userName">{{item.s_notice_title}}</span>
+            <span class="time">{{item.s_notice_time}}</span>
           </div>
           <el-row class="row2">
             <el-col :span="10" class="msg">
-              <p>信息信息信息信息信息信息信
-                息信息信息信息信息信息信息信
-                息信息信息信息信息信息信息信息信
-                息信息信息信息信息信息信息信息信息
-                信息信息信息信息信息信息信息信息信息
-                信息信息信息信息信息信息信息信息信
-                息信息信息信息信息信息信息信息信
-                息信息信息信息信息信息信息信息信息
-                信息信息信息信息信息信息信息信息信
-                息信息信息信息信息信息</p>
+              <p>{{item.s_notice_content}}</p>
             </el-col>
+            <!-- check the detail of the notice -->
             <div class="msgDetail">
-              <el-link type="primary">
+              <el-link type="primary"
+                @click = "handleDetailClick(
+                          item.s_notice_title,
+                          item.s_notice_content,
+                          item.s_notice_time)"
+              >
                 查看详情
               </el-link>
               <i class="el-icon-arrow-right"></i>
@@ -40,6 +38,15 @@
         <el-divider></el-divider>
         <div class="placeholderRight"></div>
       </el-row>
+      <!-- dialog the detail of the notice -->
+      <el-dialog
+        :title="detailTitle"
+        :visible.sync="detailVisible"
+        width="30%"
+        >
+        <p class="time">{{detailtime}}</p>
+        <p>{{detailContent}}</p>
+      </el-dialog>
     </div>
   </div>
 </div>
@@ -47,6 +54,7 @@
 </template>
 
 <script>
+import {mapState} from 'vuex'
 export default {
   name: 'Notice',
   components: {
@@ -55,14 +63,49 @@ export default {
   data () {
     return {
       circleUrl: "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
-      list: ['1','1','1','1','1','1','1','1','1','1','1','1']
+      list: [],
+      detailVisible: false,
+      //temporary data
+      detailTitle: "",
+      detailContent: "",
+      detailtime: ""
     }
+  },
+  computed: {
+    ...mapState(['id'])
+  },
+  methods: {
+    handleDetailClick(title, content, time){
+        //pop dialog
+        this.detailVisible=true;
+        //store data
+        this.detailtime=time;
+        this.detailTitle=title;
+        this.detailContent=content;
+    }
+  },
+  created () {
+    this.$http({
+      method: 'get',
+      url: '/testApi/user/getNotice',
+      params: {
+        id: this.id
+      }
+    }).then((res) => {
+      this.list = res.data.noticeInfo;
+    })
   }
 }
 </script>
 
 <style lang="stylus" scoped>
 @import '~styles/variables.styl'
+.wrapper >>> .el-dialog
+  border-radius: 5px
+.wrapper >>> .el-dialog__body
+  padding-top: 0
+.time
+  color: #BBB
 .frame
   display: flex
   justify-content: center
@@ -94,11 +137,11 @@ export default {
             align-items: flex-start
             margin: 0 $gap 0 0
             padding: 0
-            height: 60px
+            height: 55px
             p
               height: 100%
               width: 100%
-              overflow:hidden;
+              overflow: hidden
               text-overflow:ellipsis
               display:-webkit-box
               -webkit-box-orient:vertical

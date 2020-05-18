@@ -1,0 +1,2 @@
+webpackJsonp([18],{b9oP:function(e,t){},sJe1:function(e,t,n){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var i={render:function(){var e=this.$createElement,t=this._self._c||e;return t("div",[this._m(0),this._v(" "),t("el-divider")],1)},staticRenderFns:[function(){var e=this.$createElement,t=this._self._c||e;return t("div",[t("span",[this._v("课表")])])}]};var r=n("VU/8")({},i,!1,function(e){n("b9oP")},null,null);t.default=r.exports}});
+//# sourceMappingURL=18.51b5f60e18780bb8f7a2.js.map

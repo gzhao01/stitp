@@ -13,7 +13,7 @@
          </div>
        </div> 
     </div> -->
-
+    <a class='download' :href='downloadhttp' download=""  title="下载">下载</a>
     <el-collapse accordion>
       <el-collapse-item class="father">
         <template slot="title">

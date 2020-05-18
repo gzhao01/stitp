@@ -34,10 +34,10 @@ export default {
   },
   created () {
     //change course_id
-    var id = this.$route.query.id;
-    if(this.course_id != id){
-      this.$store.dispatch('changeCourseID', id);
-    }
+  //   var id = this.$route.query.id;
+  //   if(this.course_id != id){
+  //     this.$store.dispatch('changeCourseID', id);
+  //   }
   }
 }
 </script>

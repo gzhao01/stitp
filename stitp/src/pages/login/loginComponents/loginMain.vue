@@ -90,10 +90,12 @@ export default {
               // }
             }).then((response) =>{
               this.id = response.data.id; 
+              this.$store.dispatch('changeID', this.id); 
               this.$router.push({
                                 //path: '/myHome/pInfo?id='+response.data.id,
                                 // path: '/myHome/pInfo', query: {id: this.id},
-                                name: 'pInfo', params: {id: this.id}
+                                // name: 'pInfo', params: {id: this.id}
+                                name: 'pInfo'
                                 // query: {id: res.id}
                               });
               console.log(response);

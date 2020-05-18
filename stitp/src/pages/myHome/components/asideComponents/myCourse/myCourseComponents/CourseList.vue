@@ -69,6 +69,7 @@ export default {
       this.getData(this.pageSize, this.currentPage, this.id)
     },
     handleImgClick (c_id) {
+      this.$store.dispatch('changeCourseID', c_id);
       this.$router.push({path:'/courseDetail/materials',query: {id: c_id}});
     },
     // getData (size,toPage) {
